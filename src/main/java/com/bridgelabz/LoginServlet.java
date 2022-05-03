@@ -28,6 +28,17 @@ public class LoginServlet extends HttpServlet {
         String userID = getServletConfig().getInitParameter("user");
         String password = getServletConfig().getInitParameter("password");
 
+        String userRegex = "^[A-Z]{1}.{2,}$";//username regex
+        /*
+        Checking for i)User name regex
+        ii) Atleast one upper case
+        iii) Min 3 characters
+         */
+        if (!user.matches(userRegex)) {
+            PrintWriter out = response.getWriter();
+            out.println("<font color=red>Kindly Enter Correct user name</font>");
+        }
+
         if (userID.equals(user) && password.equals(pwd)) {
 
             request.setAttribute("user", user);
