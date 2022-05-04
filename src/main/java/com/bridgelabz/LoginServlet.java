@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
          */
         if (!user.matches(userRegex)) {
             PrintWriter out = response.getWriter();
-            out.println("<font color=red>Kindly Enter Correct user name</font>");
+            out.println("<font color=red>Kindly Enter Correct User Name</font>");
         }
 
          /*
@@ -58,17 +58,16 @@ public class LoginServlet extends HttpServlet {
          */
         if (!pwd.matches(passwordRegex)) {
             PrintWriter out = response.getWriter();
-            out.println("<font color=red>Kindly Enter Correct password</font>");
+            out.println("<font color=red>Kindly Enter Correct Password</font>");
         }
 
         if (userID.equals(user) && password.equals(pwd)) {
-
             request.setAttribute("user", user);
             request.getRequestDispatcher("LoginSuccess.jsp").forward(request, response);
         } else {
             RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.html");
             PrintWriter out = response.getWriter();
-            out.println("<font color=red> Either user name or password is wrong.</font>");
+            out.println("<font color=yellow> Either User Name Or Password Is Wrong.</font>");
             requestDispatcher.include(request, response);
         }
     }

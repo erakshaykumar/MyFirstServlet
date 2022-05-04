@@ -9,9 +9,17 @@
 <html>
 <head>
     <title>Login Success</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: url(https://cdn.hipwallpaper.com/i/31/76/E8FiYD.jpg)
+        }
+    </style>
 </head>
 <body>
-<h3>Hi <%= request.getAttribute("user")%>,Login Successful</h3>
+<h3><span style="color: white; size: 50px "> Hi <%= request.getAttribute("user")%>, Login Successful</span></h3>
 <a href ="/login.html"></a>
 </body>
 </html>
